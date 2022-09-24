@@ -1,0 +1,66 @@
+body{
+    background-color: azure;
+}
+
+h1{
+    padding-left: 3%;
+}
+.box{
+    position: relative;
+    /* top: 25%;
+    left: 25%;
+    right: 25%;
+    bottom: 25%; */
+    transform: translate(35%, 25%);
+}
+
+.input {
+    padding: 10px;
+    width: 80px;
+    height: 80px;
+    background: none;
+    border: 2px solid #78c7d2;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-family: Comic Sans MS;
+    font-size: 26px;
+    color: #78c7d2;
+    outline: none;
+    transition: .5s;
+}
+.box:hover input{
+    width: 350px;
+    background: #2f3640;
+    border-radius: 10px;
+}
+.box i{
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translate(-50%,-50%);
+    font-size: 26px;
+    color: #ffd52d;
+    transition: .2s;
+}
+.box:hover i{
+    opacity: 0;
+    z-index: -1;
+}
+
+/* YouTube icon */
+#ytb {
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 52px;
+  border: 2px solid transparent;
+  color: #ff1717;
+  font-size: 25px;
+  transition: 0.3s;
+}
+
+#ytb:hover{
+  border-radius: 50%;
+  border-color: #ff1717;
+  box-shadow: 0 0 10px #ff4040;
+}
