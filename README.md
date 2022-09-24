@@ -1,8 +1,7 @@
 # Methodize
 
 <!-- ![Home Page](src/assets/Product-screenshot.png) -->
-
-<p align="center"> <img height="400"  alt="home" src="client\src\assets\Product-screenshot.png"> </p>
+![image](https://user-images.githubusercontent.com/67205874/192093252-03911ee6-d905-4f9a-a71e-19c27e2edc50.png)
 
 ## Overview
 
