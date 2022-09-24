@@ -23,7 +23,6 @@ const AddMemberForm = ({ teamId, clickClose, open, setTeamUsers }) => {
       setError("User already on team");
     }
 
-    // const res = await apiServer.get(`/project/${projectId}/tasklists`);
   };
 
   const getAllUsers = async () => {
