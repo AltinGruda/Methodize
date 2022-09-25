@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Modal } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { useForm } from "react-hook-form";
@@ -8,6 +8,7 @@ import "../../css/Forms.css";
 const TeamForm = ({ handleNewClose, clickClose, open }) => {
   const { register, handleSubmit, errors } = useForm();
   const [teamState, teamdispatch] = useContext(TeamContext);
+  const [errorMessage, setErrorMessage] = useState("");
   const userId = localStorage.getItem("userId");
 
   const onSubmit = async ({ name, description }) => {
@@ -15,6 +16,14 @@ const TeamForm = ({ handleNewClose, clickClose, open }) => {
       name,
       description,
     });
+    try {
+      const res = await apiServer.post("/team/user", { userId, name, description });
+      setErrorMessage("");
+    } catch (err) {
+      console.log(err.status);
+      console.log("Something went wrong for sure")
+      setErrorMessage("Something went wrong");
+    }
 
     const res = await apiServer.get(`/team/user/${userId}`);
     await teamdispatch({ type: "update_user_teams", payload: res.data });
