@@ -11,9 +11,15 @@ const tasklistRouter = require("./db/routes/tasklists");
 const commentRouter = require("./db/routes/comments");
 const userteamRouter = require("./db/routes/userteams");
 const roomRouter = require("./db/routes/room");
-
 const app = express();
 app.use(bodyParser.json());
+
+const options = require('./admin.options')
+const buildAdminRouter = require('./admin.router')
+const AdminJS = require('adminjs')
+
+const admin = new AdminJS(options);
+const router = buildAdminRouter(admin);
 
 // Same as bodyParser but built in
 // app.use(express.json())
@@ -32,6 +38,7 @@ app.use("/tasklist", tasklistRouter);
 app.use("/comment", commentRouter);
 app.use("/userteam", userteamRouter);
 app.use("/room", roomRouter);
+app.use('/admin', router)
 
 app.get("/", (req, res) => {
   res.send("<h1>You're Connected </h1>");

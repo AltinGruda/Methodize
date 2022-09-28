@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Context as UserContext } from "../../context/store/UserStore";
 import { NavLink } from "react-router-dom";
 import "../../css/Navbar.css";
 import { RiMenuFoldLine, RiMenuFill } from "react-icons/ri";
@@ -20,19 +21,21 @@ import Chart3 from '../../assets/chart3.svg'
 import Chart4 from '../../assets/chart4.svg'
 import Home from '../../assets/home.svg'
 import Chat from '../../assets/chat.svg'
-
+import Admin from '../../assets/admin.png'
 
 
 const LeftNavBar = ({ showSidebar, sidebar }) => {
   // const [teams, setTeams] = useState([]);
   const [teamState] = useContext(TeamContext);
   const [open, setOpen] = useState(false);
+  const [userState] = useContext(UserContext);
 
   //NOTE : Only other option that worked was setting state either in here or in App.js and call it for global state. ReducerContext does not work
 
   const openModal = () => {
     setOpen(true);
   };
+  // console.log(userState)
 
   const closeModal = () => {
     setOpen(false);
@@ -58,6 +61,7 @@ const LeftNavBar = ({ showSidebar, sidebar }) => {
     );
   });
 
+  // console.log(userState.user.name)
   const modalBody = (
     <div className="modal-container">
       <TeamForm clickClose={closeModal} open={open}></TeamForm>
@@ -102,7 +106,7 @@ const LeftNavBar = ({ showSidebar, sidebar }) => {
                 activeClassName="navlink--active"
               >
                 <div className="left-nav-bar-link">
-                <img src={Home} alt="chart-icon" width={22} />
+                  <img src={Home} alt="chart-icon" width={22} />
                   <div>
                     <p className="left-nav-bar-link-title">Home</p>
                   </div>
@@ -114,7 +118,7 @@ const LeftNavBar = ({ showSidebar, sidebar }) => {
                 activeClassName="navlink--active"
               >
                 <div className="left-nav-bar-link">
-                <img src={Task} alt="chart-icon" width={22} />
+                  <img src={Task} alt="chart-icon" width={22} />
                   <div>
                     <p
                       className="left-nav-bar-link-title"
@@ -131,7 +135,7 @@ const LeftNavBar = ({ showSidebar, sidebar }) => {
                 activeClassName="navlink--active"
               >
                 <div className="left-nav-bar-link">
-                <img src={Chart4} alt="chart-icon" width={22} />
+                  <img src={Chart4} alt="chart-icon" width={22} />
                   <div>
                     <p
                       className="left-nav-bar-link-title"
@@ -148,7 +152,7 @@ const LeftNavBar = ({ showSidebar, sidebar }) => {
                 activeClassName="navlink--active"
               >
                 <div className="left-nav-bar-link">
-                <img src={Chat} alt="chart-icon" width={22} />
+                  <img src={Chat} alt="chart-icon" width={22} />
                   <div>
                     <p
                       className="left-nav-bar-link-title"
@@ -159,6 +163,14 @@ const LeftNavBar = ({ showSidebar, sidebar }) => {
                   </div>
                 </div>
               </NavLink>
+              {userState.user.name === 'altin gruda' &&
+                <div className="left-nav-bar-main-link">
+                  <img src={Admin} alt="chart-icon" width={22} />
+                  <a href="http://localhost:8080/admin" className="left-nav-bar-link-title" style={{
+                    textDecoration: "none",
+                    color: "white",
+                  }}>Admin</a>
+                </div>}
               {/* <NavLink
                 to="/projects"
                 className="left-nav-bar-main-link"
@@ -174,7 +186,7 @@ const LeftNavBar = ({ showSidebar, sidebar }) => {
             </div>
             <div className="teams-items-container">
               <div className="teams-items-header" style={{ display: "flex" }}>
-                <img src={Team} alt="team-icon" width={22}/>
+                <img src={Team} alt="team-icon" width={22} />
                 <div>
                   <p className="left-nav-bar-link-title">Teams</p>
                 </div>
@@ -187,7 +199,7 @@ const LeftNavBar = ({ showSidebar, sidebar }) => {
               </div>
               {teamState.teams ? renderedList : <div>Loading...</div>}
             </div>
-          
+
           </div>
         </div>
 

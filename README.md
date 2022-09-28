@@ -7,10 +7,6 @@
 
 Methodize is a project management tool. Methodize allows users to keep track of teams, projects, and tasks. Methodize was developed using NodeJS, Express, and React.
 
-## Live Link
-
-[Methodize](https://methodize-app.herokuapp.com)
-
 ## Technologies
 
 ### Backend:

@@ -15,6 +15,7 @@ import NewTeamMemberIcon from "../teams/NewTeamMemberIcon";
 import AddProjectPopOut from "../PopOutMenu/AddProjectPopOut";
 import { BiBorderNone } from "react-icons/bi";
 import { AiOutlineEllipsis } from "react-icons/ai";
+import stickyNote from '../../css/stickyNote.css'
 
 const TeamPage = () => {
   const { teamId, teamName } = useParams();
@@ -31,7 +32,6 @@ const TeamPage = () => {
   const showSideProjectForm = () => {
     setSideProjectForm(!sideProjectForm);
   };
-  console.log(teamUsers);
   const getTeam = async () => {
     try {
       const res = await apiServer.get(`/team/${teamId}`);
@@ -112,6 +112,7 @@ const TeamPage = () => {
                 ></textarea>
               </form>
             </div>
+
             <div className="team-content-left-members-container">
               <div className="team-content-left-members-header">
                 <div className="team-content-title">Members</div>
@@ -128,6 +129,7 @@ const TeamPage = () => {
                   </Menu>
                 </div>
               </div>
+
               <div className="team-content-left-members--list">
                 {teamUsers === undefined ? (
                   <Redirect to="/" />
@@ -144,6 +146,7 @@ const TeamPage = () => {
               </div>
             </div>
           </div>
+
           <div className="team-page-content-right">
             <div className="team-content-right-header">
               <div className="team-content-title">Projects</div>
@@ -165,6 +168,27 @@ const TeamPage = () => {
               )}
               {/* {projectsList} */}
               <NewProjectTile showSideProjectForm={showSideProjectForm} />
+            </div>
+            <div class="animate awesome">
+
+              <div class="reveal circle_wrapper">
+                <div class="circle">Room Code: room{teamId}</div>
+              </div>
+
+              <div class="sticky animate">
+                <div class="front circle_wrapper animate">
+                  <div class="circle animate"></div>
+                </div>
+              </div>
+
+              <h4>Psst. Come here!</h4>
+
+              <div class="sticky animate">
+                <div class="back circle_wrapper animate">
+                  <div class="circle animate"></div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

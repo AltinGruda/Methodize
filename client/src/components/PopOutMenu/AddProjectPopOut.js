@@ -8,7 +8,7 @@ const AddProjectPopOut = ({ showSideProjectForm, title, setTeamProjects }) => {
     <>
       <div
         className={"popout-form"}
-        style={{ width: "30%", height: "96%", margin: "10px 10px 10px 10px" }}
+        style={{ width: "30%", height: "96%", margin: "10px 15% 10px 10px", }}
       >
         <div
           style={{

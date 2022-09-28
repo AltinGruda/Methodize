@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (reducer, actions, initalState) => {
   const Context = React.createContext();
 
